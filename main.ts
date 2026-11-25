@@ -1,15 +1,15 @@
+// Out-of-office reply generator — v2 "Call the Fire Brigade".
+// The joke works by absurd escalation: "your email is on fire" is
+// taken literally, so the only useful advice is to call the fire
+// brigade — and the punchline then undercuts the sender himself,
+// admitting the firefighters answer faster than he does even on a
+// normal Tuesday, when he is supposedly at work.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-// The funniest out-of-office reply: a real OOO line whose twist is that
-// the cover has already collapsed — the replacement left too, so instead
-// of help the reader is handed a chain of disappointment. Tightened from
-// a passive first draft ("This reply was written by my replacement, who
-// is also away") to active voice with "then left too": same joke, fewer
-// words, harder landing.
 const LINE =
-  "I'm away until Monday. My replacement wrote this reply, then left too — please enjoy this chain of disappointment.";
+  "Out of office until Monday. If your email is on fire, call the fire brigade — they answer faster than I do on a normal Tuesday.";
 
 const outDir = process.env.OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), LINE, "utf8");
+writeFileSync(join(outDir, "entry.txt"), LINE);
